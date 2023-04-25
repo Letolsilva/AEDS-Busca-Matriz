@@ -5,20 +5,26 @@
 #include "funcoesArquivo.hpp"
 
 int main(){
-    itemMatriz ** matriz;
-    int N;
-    ifstream arquivo;
 
-    arquivo.open("dataset/input.data", ios::in);
-    N = lerPrimeiraLinha(arquivo);
+    int N, qtd_matriz=0;
+
+    //Salvando informações presentes na primeria linha
+    tie(N, qtd_matriz) = LePrimeraLinha();
 
     //Alocação da matriz
-    matriz = (itemMatriz**)malloc(N * sizeof(itemMatriz*));
+    itemMatriz** matriz=new itemMatriz*[N];
     for(int i = 0; i < N; i++){
-        matriz[i] = (itemMatriz*)malloc(N * sizeof(itemMatriz));
+        matriz[i]=new itemMatriz[N];
     }
 
-    lerMatrizArquivo(matriz, arquivo, N);
+    /* matriz = (itemMatriz**)malloc(N * sizeof(itemMatriz*));
+    for(int i = 0; i < N; i++){
+        matriz[i] = (itemMatriz*)malloc(N * sizeof(itemMatriz));
+    } */
+
+    LerArquivo(matriz, N);
+    cout << "QTD_MATRIZ: " << qtd_matriz << endl;
+    cout << "TAM MATRIZ: " << N << endl;
 
     for(int i = 0; i < N; i++){
         for(int j = 0; j < N; j++){
