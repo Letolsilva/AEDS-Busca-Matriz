@@ -4,9 +4,10 @@
 #include "lista.hpp"
 #include<tuple>
 #include<sstream>
+#include<ctime>
 
-tuple<int, int> LePrimeraLinha();
+int lerPrimeiraLinha();
 bool linhaVazia(const string &linha);
 void LerArquivo(itemMatriz **matriz, int tam_matriz);
-//int lerPrimeiraLinha(ifstream &arquivo);
-//void lerMatrizArquivo(itemMatriz ** matrizTexto, ifstream &arquivo, int N);
+void ImprimirMatriz(itemMatriz **matriz, int N);
+void PercorrerMatrizRandomica(itemMatriz **matriz, int linha, int coluna, int N);
