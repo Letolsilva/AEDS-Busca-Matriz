@@ -6,10 +6,10 @@
 
 int main(){
 
-    int N, qtd_matriz=0;
+    int N, linha=0, coluna=0;
 
     //Salvando informações presentes na primeria linha
-    tie(N, qtd_matriz) = LePrimeraLinha();
+    N = lerPrimeiraLinha();
 
     //Alocação da matriz
     itemMatriz** matriz=new itemMatriz*[N];
@@ -17,21 +17,12 @@ int main(){
         matriz[i]=new itemMatriz[N];
     }
 
-    /* matriz = (itemMatriz**)malloc(N * sizeof(itemMatriz*));
-    for(int i = 0; i < N; i++){
-        matriz[i] = (itemMatriz*)malloc(N * sizeof(itemMatriz));
-    } */
-
     LerArquivo(matriz, N);
-    cout << "QTD_MATRIZ: " << qtd_matriz << endl;
     cout << "TAM MATRIZ: " << N << endl;
 
-    for(int i = 0; i < N; i++){
-        for(int j = 0; j < N; j++){
-            cout << matriz[i][j].valor << " ";
-        }
-        cout << endl;
-    }
+    ImprimirMatriz(matriz, N);
+
+    PercorrerMatrizRandomica(matriz, linha, coluna, N);
 
     return 0;
 }
