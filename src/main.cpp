@@ -9,7 +9,7 @@
 int main(){
     ofstream arquivoRandomica;
     int N, linha=0, coluna=0;
-    Lista * lista;
+    Lista * lista = new Lista();
     init(lista);
 
     arquivoRandomica.open("dataset/outputRandomica.data", ios::out);
@@ -30,6 +30,7 @@ int main(){
 
     //PercorrerMatrizRandomica(matriz, linha, coluna, N, arquivoRandomica);
     PercorrerMatrizLargura(matriz, N, linha, coluna, lista);
+    matrizLarguraFinal(arquivoRandomica, matriz, N);
 
     return 0;
 }

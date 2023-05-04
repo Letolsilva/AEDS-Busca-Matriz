@@ -11,7 +11,8 @@ using namespace std;
 typedef struct itemMatriz{
     string valor, cor;
     //bool visitado;
-    pair<int, int> vetorFronteira[3];
+    //pair<int, int> vetorFronteira[3];
+    int posicaoLinha, posicaoColuna;
 }itemMatriz;
 
 #endif
