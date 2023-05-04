@@ -10,7 +10,7 @@ using namespace std;
 
 typedef struct itemMatriz{
     string valor, cor;
-    bool visitado;
+    //bool visitado;
     pair<int, int> vetorFronteira[3];
 }itemMatriz;
 

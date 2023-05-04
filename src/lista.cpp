@@ -11,6 +11,7 @@ void insertEnd(Lista * l, itemMatriz item){
     l->ultimo = l->ultimo->proximo;
     l->ultimo->item = item;
     l->ultimo->proximo = NULL;
+    l->nItens++;
 }
 
 bool listaVazia(Lista * l){
@@ -53,4 +54,11 @@ void removerItem(Lista * l, itemMatriz item){
     if(!ok){
         cout << "O item procurado não está na lista.\n";
     }
+}
+
+void excluirLista(Lista * l){//ERRADA!!!!!!!!!!!
+    for(int i = 0; i < l->nItens; i++){
+        free(&l[i]);
+    }
+    free(l);
 }
