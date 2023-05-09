@@ -5,14 +5,17 @@
 #include "funcoesArquivo.hpp"
 #include "matrizRandomica.hpp"
 #include "matrizLargura.hpp"
+#include "matrizProfundidade.hpp"
 
 int main(){
-    ofstream arquivoRandomica;
+    ofstream arquivoRandomica, arquivoLargura, arquivoProfundidade;
     int N, linha=0, coluna=0;
     Lista * lista = new Lista();
     init(lista);
 
     arquivoRandomica.open("dataset/outputRandomica.data", ios::out);
+    arquivoLargura.open("dataset/outputLargura.data", ios::out);
+    arquivoProfundidade.open("dataset/outputProfundidade.data", ios::out);
 
     //Salvando informações presentes na primeria linha
     N = lerPrimeiraLinha();
@@ -29,8 +32,18 @@ int main(){
     ImprimirMatriz(matriz, N);
 
     //PercorrerMatrizRandomica(matriz, linha, coluna, N, arquivoRandomica);
-    PercorrerMatrizLargura(matriz, N, linha, coluna, lista);
-    matrizLarguraFinal(arquivoRandomica, matriz, N);
+    //matrizFinal(arquivoRandomica, matriz, N);
+
+    //LerArquivo(matriz, N);
+    //PercorrerMatrizLargura(matriz, N, linha, coluna, lista);
+    //matrizFinal(arquivoLargura, matriz, N);
+
+    //excluirLista(lista);
+    
+    //LerArquivo(matriz, N);
+    PercorrerMatrizProfundidade(matriz, N, linha, coluna, lista);
+    matrizFinal(arquivoProfundidade, matriz, N);
+    
 
     return 0;
 }

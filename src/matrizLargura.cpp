@@ -13,10 +13,6 @@ void inicializarCores(itemMatriz ** matriz, int N){
 void verFronteiras(itemMatriz ** matriz, int linha, int coluna, int N, Lista * lista){
     if(linha == 0){
         if(coluna == 0){
-            if((matriz[linha+1][coluna].cor == "branco") && (matriz[linha+1][coluna].valor != "#")){
-                matriz[linha+1][coluna].cor = "cinza";//baixo
-                insertEnd(lista, lista->primeiro, matriz[linha+1][coluna]);
-            }
             if((matriz[linha][coluna+1].cor == "branco") && (matriz[linha][coluna+1].valor != "#")){
                 matriz[linha][coluna+1].cor = "cinza";//direita
                 insertEnd(lista, lista->primeiro, matriz[linha][coluna+1]);
@@ -24,6 +20,10 @@ void verFronteiras(itemMatriz ** matriz, int linha, int coluna, int N, Lista * l
             if((matriz[linha+1][coluna+1].cor == "branco") && (matriz[linha+1][coluna+1].valor != "#")){
                 matriz[linha+1][coluna+1].cor = "cinza";//diagonal direita inferior
                 insertEnd(lista, lista->primeiro, matriz[linha+1][coluna+1]);
+            }
+            if((matriz[linha+1][coluna].cor == "branco") && (matriz[linha+1][coluna].valor != "#")){
+                matriz[linha+1][coluna].cor = "cinza";//baixo
+                insertEnd(lista, lista->primeiro, matriz[linha+1][coluna]);
             }
         }
         else if(coluna == (N - 1)){
@@ -31,12 +31,16 @@ void verFronteiras(itemMatriz ** matriz, int linha, int coluna, int N, Lista * l
                 matriz[linha+1][coluna].cor = "cinza";//baixo
                 insertEnd(lista, lista->primeiro, matriz[linha+1][coluna]);
             }
+            if((matriz[linha+1][coluna-1].cor == "branco") && (matriz[linha+1][coluna-1].valor != "#")){
+                matriz[linha+1][coluna-1].cor = "cinza";//diagonal esquerda inferior
+                insertEnd(lista, lista->primeiro, matriz[linha+1][coluna-1]);
+            }
+            if((matriz[linha][coluna-1].cor == "branco") && (matriz[linha][coluna-1].valor != "#")){
+                matriz[linha][coluna-1].cor = "cinza";//esquerda
+                insertEnd(lista, lista->primeiro, matriz[linha][coluna-1]);
+            }
         }
         else{
-            if((matriz[linha+1][coluna].cor == "branco") && (matriz[linha+1][coluna].valor != "#")){
-                matriz[linha+1][coluna].cor = "cinza";//baixo
-                insertEnd(lista, lista->primeiro, matriz[linha+1][coluna]);
-            }
             if((matriz[linha][coluna+1].cor == "branco") && (matriz[linha][coluna+1].valor != "#")){
                 matriz[linha][coluna+1].cor = "cinza";//direita
                 insertEnd(lista, lista->primeiro, matriz[linha][coluna+1]);
@@ -44,37 +48,82 @@ void verFronteiras(itemMatriz ** matriz, int linha, int coluna, int N, Lista * l
             if((matriz[linha+1][coluna+1].cor == "branco") && (matriz[linha+1][coluna+1].valor != "#")){
                 matriz[linha+1][coluna+1].cor = "cinza";//diagonal direita inferior
                 insertEnd(lista, lista->primeiro, matriz[linha+1][coluna+1]);
+            }
+            if((matriz[linha+1][coluna].cor == "branco") && (matriz[linha+1][coluna].valor != "#")){
+                matriz[linha+1][coluna].cor = "cinza";//baixo
+                insertEnd(lista, lista->primeiro, matriz[linha+1][coluna]);
+            }
+            if((matriz[linha+1][coluna-1].cor == "branco") && (matriz[linha+1][coluna-1].valor != "#")){
+                matriz[linha+1][coluna-1].cor = "cinza";//diagonal esquerda inferior
+                insertEnd(lista, lista->primeiro, matriz[linha+1][coluna-1]);
+            }
+            if((matriz[linha][coluna-1].cor == "branco") && (matriz[linha][coluna-1].valor != "#")){
+                matriz[linha][coluna-1].cor = "cinza";//esquerda
+                insertEnd(lista, lista->primeiro, matriz[linha][coluna-1]);
             }
         }
     }
     else if(linha == (N - 1)){
         if(coluna == 0){
+            if((matriz[linha-1][coluna].cor == "branco") && (matriz[linha-1][coluna].valor != "#")){
+                matriz[linha-1][coluna].cor = "cinza";//cima
+                insertEnd(lista, lista->primeiro, matriz[linha-1][coluna]);
+            }
+            if((matriz[linha-1][coluna+1].cor == "branco") && (matriz[linha-1][coluna+1].valor != "#")){
+                matriz[linha-1][coluna+1].cor = "cinza";//diagonal direita superior
+                insertEnd(lista, lista->primeiro, matriz[linha-1][coluna+1]);
+            }
             if((matriz[linha][coluna+1].cor == "branco") && (matriz[linha][coluna+1].valor != "#")){
                 matriz[linha][coluna+1].cor = "cinza";//direita
                 insertEnd(lista, lista->primeiro, matriz[linha][coluna+1]);
             }
         }
         else if(coluna == (N - 1)){
-
+            if((matriz[linha-1][coluna].cor == "branco") && (matriz[linha-1][coluna].valor != "#")){
+                matriz[linha-1][coluna].cor = "cinza";//cima
+                insertEnd(lista, lista->primeiro, matriz[linha-1][coluna]);
+            }
+            if((matriz[linha][coluna-1].cor == "branco") && (matriz[linha][coluna-1].valor != "#")){
+                matriz[linha][coluna-1].cor = "cinza";//esquerda
+                insertEnd(lista, lista->primeiro, matriz[linha][coluna-1]);
+            }
+            if((matriz[linha-1][coluna-1].cor == "branco") && (matriz[linha-1][coluna-1].valor != "#")){
+                matriz[linha-1][coluna-1].cor = "cinza";//diagonal esquerda superior
+                insertEnd(lista, lista->primeiro, matriz[linha-1][coluna-1]);
+            }
         }
         else{
+            if((matriz[linha-1][coluna].cor == "branco") && (matriz[linha-1][coluna].valor != "#")){
+                matriz[linha-1][coluna].cor = "cinza";//cima
+                insertEnd(lista, lista->primeiro, matriz[linha-1][coluna]);
+            }
+            if((matriz[linha-1][coluna+1].cor == "branco") && (matriz[linha-1][coluna+1].valor != "#")){
+                matriz[linha-1][coluna+1].cor = "cinza";//diagonal direita superior
+                insertEnd(lista, lista->primeiro, matriz[linha-1][coluna+1]);
+            }
             if((matriz[linha][coluna+1].cor == "branco") && (matriz[linha][coluna+1].valor != "#")){
                 matriz[linha][coluna+1].cor = "cinza";//direita
                 insertEnd(lista, lista->primeiro, matriz[linha][coluna+1]);
             }
+            if((matriz[linha][coluna-1].cor == "branco") && (matriz[linha][coluna-1].valor != "#")){
+                matriz[linha][coluna-1].cor = "cinza";//esquerda
+                insertEnd(lista, lista->primeiro, matriz[linha][coluna-1]);
+            }
+            if((matriz[linha-1][coluna-1].cor == "branco") && (matriz[linha-1][coluna-1].valor != "#")){
+                matriz[linha-1][coluna-1].cor = "cinza";//diagonal esquerda superior
+                insertEnd(lista, lista->primeiro, matriz[linha-1][coluna-1]);
+            }
         }
     }
-    else{  
-        if(coluna == (N - 1)){
-            if((matriz[linha+1][coluna].cor == "branco") && (matriz[linha+1][coluna].valor != "#")){
-                matriz[linha+1][coluna].cor = "cinza";//baixo
-                insertEnd(lista, lista->primeiro, matriz[linha+1][coluna]);
+    else{ 
+        if(coluna == 0){
+            if((matriz[linha-1][coluna].cor == "branco") && (matriz[linha-1][coluna].valor != "#")){
+                matriz[linha-1][coluna].cor = "cinza";//cima
+                insertEnd(lista, lista->primeiro, matriz[linha-1][coluna]);
             }
-        } 
-        else{     
-            if((matriz[linha+1][coluna].cor == "branco") && (matriz[linha+1][coluna].valor != "#")){
-                matriz[linha+1][coluna].cor = "cinza";//baixo
-                insertEnd(lista, lista->primeiro, matriz[linha+1][coluna]);
+            if((matriz[linha-1][coluna+1].cor == "branco") && (matriz[linha-1][coluna+1].valor != "#")){
+                matriz[linha-1][coluna+1].cor = "cinza";//diagonal direita superior
+                insertEnd(lista, lista->primeiro, matriz[linha-1][coluna+1]);
             }
             if((matriz[linha][coluna+1].cor == "branco") && (matriz[linha][coluna+1].valor != "#")){
                 matriz[linha][coluna+1].cor = "cinza";//direita
@@ -83,6 +132,66 @@ void verFronteiras(itemMatriz ** matriz, int linha, int coluna, int N, Lista * l
             if((matriz[linha+1][coluna+1].cor == "branco") && (matriz[linha+1][coluna+1].valor != "#")){
                 matriz[linha+1][coluna+1].cor = "cinza";//diagonal direita inferior
                 insertEnd(lista, lista->primeiro, matriz[linha+1][coluna+1]);
+            }
+            if((matriz[linha+1][coluna].cor == "branco") && (matriz[linha+1][coluna].valor != "#")){
+                matriz[linha+1][coluna].cor = "cinza";//baixo
+                insertEnd(lista, lista->primeiro, matriz[linha+1][coluna]);
+            }
+        } 
+        else if(coluna == (N - 1)){
+            if((matriz[linha-1][coluna].cor == "branco") && (matriz[linha-1][coluna].valor != "#")){
+                matriz[linha-1][coluna].cor = "cinza";//cima
+                insertEnd(lista, lista->primeiro, matriz[linha-1][coluna]);
+            }
+            if((matriz[linha+1][coluna].cor == "branco") && (matriz[linha+1][coluna].valor != "#")){
+                matriz[linha+1][coluna].cor = "cinza";//baixo
+                insertEnd(lista, lista->primeiro, matriz[linha+1][coluna]);
+            }
+            if((matriz[linha+1][coluna-1].cor == "branco") && (matriz[linha+1][coluna-1].valor != "#")){
+                matriz[linha+1][coluna-1].cor = "cinza";//diagonal esquerda inferior
+                insertEnd(lista, lista->primeiro, matriz[linha+1][coluna-1]);
+            }
+            if((matriz[linha][coluna-1].cor == "branco") && (matriz[linha][coluna-1].valor != "#")){
+                matriz[linha][coluna-1].cor = "cinza";//esquerda
+                insertEnd(lista, lista->primeiro, matriz[linha][coluna-1]);
+            }
+            if((matriz[linha-1][coluna-1].cor == "branco") && (matriz[linha-1][coluna-1].valor != "#")){
+                matriz[linha-1][coluna-1].cor = "cinza";//diagonal esquerda superior
+                insertEnd(lista, lista->primeiro, matriz[linha-1][coluna-1]);
+            }
+        } 
+        else{     
+            if((matriz[linha-1][coluna].cor == "branco") && (matriz[linha-1][coluna].valor != "#")){
+                matriz[linha-1][coluna].cor = "cinza";//cima
+                insertEnd(lista, lista->primeiro, matriz[linha-1][coluna]);
+            }
+            if((matriz[linha-1][coluna+1].cor == "branco") && (matriz[linha-1][coluna+1].valor != "#")){
+                matriz[linha-1][coluna+1].cor = "cinza";//diagonal direita superior
+                insertEnd(lista, lista->primeiro, matriz[linha-1][coluna+1]);
+            }
+            if((matriz[linha][coluna+1].cor == "branco") && (matriz[linha][coluna+1].valor != "#")){
+                matriz[linha][coluna+1].cor = "cinza";//direita
+                insertEnd(lista, lista->primeiro, matriz[linha][coluna+1]);
+            }
+            if((matriz[linha+1][coluna+1].cor == "branco") && (matriz[linha+1][coluna+1].valor != "#")){
+                matriz[linha+1][coluna+1].cor = "cinza";//diagonal direita inferior
+                insertEnd(lista, lista->primeiro, matriz[linha+1][coluna+1]);
+            }
+            if((matriz[linha+1][coluna].cor == "branco") && (matriz[linha+1][coluna].valor != "#")){
+                matriz[linha+1][coluna].cor = "cinza";//baixo
+                insertEnd(lista, lista->primeiro, matriz[linha+1][coluna]);
+            }
+            if((matriz[linha+1][coluna-1].cor == "branco") && (matriz[linha+1][coluna-1].valor != "#")){
+                matriz[linha+1][coluna-1].cor = "cinza";//diagonal esquerda inferior
+                insertEnd(lista, lista->primeiro, matriz[linha+1][coluna-1]);
+            }
+            if((matriz[linha][coluna-1].cor == "branco") && (matriz[linha][coluna-1].valor != "#")){
+                matriz[linha][coluna-1].cor = "cinza";//esquerda
+                insertEnd(lista, lista->primeiro, matriz[linha][coluna-1]);
+            }
+            if((matriz[linha-1][coluna-1].cor == "branco") && (matriz[linha-1][coluna-1].valor != "#")){
+                matriz[linha-1][coluna-1].cor = "cinza";//diagonal esquerda superior
+                insertEnd(lista, lista->primeiro, matriz[linha-1][coluna-1]);
             }
         }
     }

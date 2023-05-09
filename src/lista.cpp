@@ -1,43 +1,12 @@
 #include "lista.hpp"
 
 void init(Lista * l){
-    /*l->primeiro = (itemLista*)malloc(sizeof(itemLista));
-    l->ultimo = l->primeiro;
-    l->primeiro->proximo = NULL;*/
     l->primeiro = NULL;
     l->ultimo = NULL;
     l->nItens = 0;
 }
 
-void insertEnd(/*Lista * l, itemMatriz item*/Lista * l, itemLista*& primeiro, itemMatriz item){
-    /* itemLista * novo = (itemLista*)malloc(sizeof(itemLista));
-    novo->item = item; */
-    /*if(listaVazia(l)){
-        itemLista * novo = (itemLista*)malloc(sizeof(itemLista));
-        novo->item = item;
-        l->primeiro = novo;
-        l->ultimo = novo;
-        l->nItens = 1;
-        l->ultimo->proximo = NULL;
-    }
-    else{
-        l->ultimo->proximo = (itemLista*) malloc (sizeof(itemLista));
-        l->ultimo = l->ultimo->proximo;
-        l->ultimo->proximo = NULL;
-        l->ultimo->item = item;
-    }*/
-    /* if(listaVazia(l)){
-        l->primeiro = novo;
-        l->ultimo = novo;
-        l->nItens = 1;
-        l->ultimo->proximo = NULL;
-    }
-    else{
-        l->ultimo->proximo = novo;
-        l->ultimo = novo;
-        l->ultimo->proximo = NULL;
-        l->nItens++;
-    } */
+void insertEnd(Lista * l, itemLista*& primeiro, itemMatriz item){
     itemLista * novo = new itemLista;
     novo->item = item;
     novo->proximo = NULL;
@@ -53,6 +22,13 @@ void insertEnd(/*Lista * l, itemMatriz item*/Lista * l, itemLista*& primeiro, it
         aux->proximo = novo;
         l->nItens++;
     }
+}
+
+void insertInicio(Lista * l, itemLista*& primeiro, itemMatriz item){
+    itemLista * novo = new itemLista;
+    novo->item = item;
+    novo->proximo = l->primeiro;
+    l->primeiro = novo;
 }
 
 void LImprime(Lista *l){

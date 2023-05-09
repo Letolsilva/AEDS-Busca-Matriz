@@ -17,5 +17,6 @@ void excluirLista(Lista * l);
 bool listaVazia(Lista * l);
 bool existeNaLista(Lista * l, itemLista * item);
 void LImprime(Lista *l);
+void insertInicio(Lista * l, itemLista*& primeiro, itemMatriz item);
 
 #endif
