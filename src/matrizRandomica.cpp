@@ -14,8 +14,8 @@ void PercorrerMatrizRandomica(itemMatriz **matriz, int linha, int coluna, int N,
 
     while(matriz[linha_aux][coluna_aux].valor != "?"){
         direcaoAleatoria = rand()%8;
-        cout << "POSIÇÂO ATUAL" << "[" << linha_aux << "]" << "[" << coluna_aux << "]" << endl;
-        cout << "DIREÇÃO ALEATORIA: " << direcaoAleatoria << endl;
+        //cout << "POSIÇÂO ATUAL" << "[" << linha_aux << "]" << "[" << coluna_aux << "]" << endl;
+        //cout << "DIREÇÃO ALEATORIA: " << direcaoAleatoria << endl;
 
         switch (direcaoAleatoria)
         {
@@ -30,7 +30,7 @@ void PercorrerMatrizRandomica(itemMatriz **matriz, int linha, int coluna, int N,
                         coluna_aux = 0;
                     }
                 }
-                ImprimirMatriz(matriz, N);
+                //ImprimirMatriz(matriz, N);
                 break;
             case 1: //esquerda
                 if(coluna_aux > 0 && matriz[linha_aux][coluna_aux-1].valor != "#"){
@@ -43,7 +43,7 @@ void PercorrerMatrizRandomica(itemMatriz **matriz, int linha, int coluna, int N,
                         coluna_aux = 0;
                     }
                 }
-                ImprimirMatriz(matriz, N);
+                //ImprimirMatriz(matriz, N);
                 break;
             case 2: // cima
                 if(linha_aux > 0 && matriz[linha_aux-1][coluna_aux].valor != "#"){
@@ -56,7 +56,7 @@ void PercorrerMatrizRandomica(itemMatriz **matriz, int linha, int coluna, int N,
                         coluna_aux = 0;
                     }
                 }
-                ImprimirMatriz(matriz, N);
+                //ImprimirMatriz(matriz, N);
                 break;
             case 3: //baixo
                 if(coluna_aux < N-1 && matriz[linha_aux+1][coluna_aux].valor != "#"){
@@ -69,7 +69,7 @@ void PercorrerMatrizRandomica(itemMatriz **matriz, int linha, int coluna, int N,
                         coluna_aux = 0;
                     }
                 }
-                ImprimirMatriz(matriz, N);
+                //ImprimirMatriz(matriz, N);
                 break;
             case 4: //dig  esq sup
                 if(linha_aux != 0 && coluna_aux != 0 && matriz[linha_aux-1][coluna_aux-1].valor != "#"){
@@ -83,7 +83,7 @@ void PercorrerMatrizRandomica(itemMatriz **matriz, int linha, int coluna, int N,
                         coluna_aux = 0;
                     }
                 }
-                ImprimirMatriz(matriz, N);
+                //ImprimirMatriz(matriz, N);
                 break;
             case 5: //dig dir sup
                 if(linha_aux != 0 && coluna_aux != N-1 && matriz[linha_aux-1][coluna_aux+1].valor != "#"){
@@ -97,7 +97,7 @@ void PercorrerMatrizRandomica(itemMatriz **matriz, int linha, int coluna, int N,
                         coluna_aux = 0;
                     }
                 }
-                ImprimirMatriz(matriz, N);
+                //ImprimirMatriz(matriz, N);
                 break;
             case 6: //dig esq inf
                 if(linha_aux != N-1 && coluna_aux != 0 && matriz[linha_aux+1][coluna_aux-1].valor != "#"){
@@ -111,11 +111,11 @@ void PercorrerMatrizRandomica(itemMatriz **matriz, int linha, int coluna, int N,
                         coluna_aux = 0;
                     }
                 }
-                ImprimirMatriz(matriz, N);
+                //ImprimirMatriz(matriz, N);
                 break;
             case 7: //dig dir inf
                 if(linha_aux != N-1 && coluna_aux != N-1 && matriz[linha_aux+1][coluna_aux+1].valor != "#"){
-                    cout << "Entra??" << endl;
+                    //cout << "Entra??" << endl;
                     if(matriz[linha_aux+1][coluna_aux+1].valor != "*"){
                         linha_aux++;
                         coluna_aux++;
@@ -126,11 +126,11 @@ void PercorrerMatrizRandomica(itemMatriz **matriz, int linha, int coluna, int N,
                         coluna_aux = 0;
                     }
                 }
-                ImprimirMatriz(matriz, N);
+                //ImprimirMatriz(matriz, N);
                 break;
         }
     }
-    cout << "ACHADO O FIM!!" << endl;
+    cout << "\nACHADO O FIM!!" << endl;
     cout << "POSIÇÂO: [" << linha_aux << "]" << "[" << coluna_aux << "]"  << endl;
     matrizRandomicaFinal(arquivo, matriz, N);
 }

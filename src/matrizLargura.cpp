@@ -220,12 +220,14 @@ void PercorrerMatrizLargura(itemMatriz **matriz, int N, int linha, int coluna, L
         else{
             verFronteiras(matriz,linha,coluna,N, lista);
             matriz[linha][coluna].cor = "preto";
-            cout << "Posição atual: " << linha << " " << coluna << endl;
-            LImprime(lista);
+            //cout << "Posição atual: " << linha << " " << coluna << endl;
+            //LImprime(lista);
             linha = lista->primeiro->item.posicaoLinha;
             coluna = lista->primeiro->item.posicaoColuna; 
-            cout << "Posição atual 2: " << linha << " " << coluna << endl;
+            //cout << "Posição atual 2: " << linha << " " << coluna << endl;
             removerItemInicio(lista);
         }
     }
+    cout << "ACHADO O FIM!!" << endl;
+    cout << "POSIÇÂO: [" << linha << "]" << "[" << coluna << "]"  << endl;
 }
