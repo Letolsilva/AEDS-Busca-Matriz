@@ -197,7 +197,7 @@ void verFronteiras(itemMatriz ** matriz, int linha, int coluna, int N, Lista * l
     }
 }
 
-void matrizLarguraFinal(ofstream &arquivo, itemMatriz ** matriz, int N){
+void matrizFinal(ofstream &arquivo, itemMatriz ** matriz, int N){
     for(int i = 0; i < N; i++){
         for(int j = 0; j < N; j++){
             arquivo << matriz[i][j].valor << " ";

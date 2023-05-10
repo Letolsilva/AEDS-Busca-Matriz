@@ -24,7 +24,7 @@ void insertEnd(Lista * l, itemLista*& primeiro, itemMatriz item){
     }
 }
 
-void insertInicio(Lista * l, itemLista*& primeiro, itemMatriz item){
+void insertInicio(Lista * l, itemMatriz item){
     itemLista * novo = new itemLista;
     novo->item = item;
     novo->proximo = l->primeiro;
