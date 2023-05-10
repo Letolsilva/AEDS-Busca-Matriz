@@ -44,6 +44,9 @@ int main(){
     PercorrerMatrizProfundidade(matriz, N, linha, coluna, lista);
     matrizFinal(arquivoProfundidade, matriz, N);
     
+    arquivoLargura.close();
+    arquivoProfundidade.close();
+    arquivoRandomica.close();
 
     return 0;
 }

@@ -53,48 +53,95 @@ int caminhoDisponivel(itemMatriz ** matriz, int N, int linha, int coluna, int ta
         }
     }
     else if(linha == (N - 1)){
-        
-    }
-    else{
         if(coluna == 0){
-            if(matriz[linha-1][coluna+1].valor != "#"){
+            if((matriz[linha-1][coluna].valor != "#") && (tag != 5)){
+                return 1;//Cima
+            }
+            if((matriz[linha-1][coluna+1].valor != "#") && (tag != 6)){
                 return 2;//Diagonal direita superior
             }
-            if(matriz[linha][coluna+1].valor != "#"){
+            if((matriz[linha][coluna+1].valor != "#") && (tag != 7)){
                 return 3;//Direita
-            }
-            if(matriz[linha+1][coluna+1].valor != "#"){
-                return 4;//Diagonal direita inferior
             }
         }
         else if(coluna == (N - 1)){
-            if(matriz[linha+1][coluna-1].valor != "#"){
-                return 6;//Diagonal esquerda inferior
+            if((matriz[linha-1][coluna].valor != "#") && (tag != 5)){
+                return 1;//Cima
             }
-            if(matriz[linha][coluna-1].valor != "#"){
+            if((matriz[linha][coluna-1].valor != "#") && (tag != 3)){
                 return 7;//Esquerda
             }
-            if(matriz[linha-1][coluna-1].valor != "#"){
+            if((matriz[linha-1][coluna-1].valor != "#") && (tag != 4)){
                 return 8;//Diagonal esquerda superior
             }
         }
         else{
-            if(matriz[linha-1][coluna+1].valor != "#"){
+            if((matriz[linha-1][coluna].valor != "#") && (tag != 5)){
+                return 1;//Cima
+            }
+            if((matriz[linha-1][coluna+1].valor != "#") && (tag != 6)){
                 return 2;//Diagonal direita superior
             }
-            if(matriz[linha][coluna+1].valor != "#"){
+            if((matriz[linha][coluna+1].valor != "#") && (tag != 7)){
                 return 3;//Direita
             }
-            if(matriz[linha+1][coluna+1].valor != "#"){
-                return 4;//Diagonal direita inferior
-            }
-            if(matriz[linha+1][coluna-1].valor != "#"){
-                return 6;//Diagonal esquerda inferior
-            }
-            if(matriz[linha][coluna-1].valor != "#"){
+            if((matriz[linha][coluna-1].valor != "#") && (tag != 3)){
                 return 7;//Esquerda
             }
-            if(matriz[linha-1][coluna-1].valor != "#"){
+            if((matriz[linha-1][coluna-1].valor != "#") && (tag != 4)){
+                return 8;//Diagonal esquerda superior
+            }
+        }
+    }
+    else{
+        if(coluna == 0){
+            if((matriz[linha-1][coluna].valor != "#") && (tag != 5)){
+                return 1;//Cima
+            }
+            if((matriz[linha-1][coluna+1].valor != "#") && (tag != 6)){
+                return 2;//Diagonal direita superior
+            }
+            if((matriz[linha][coluna+1].valor != "#") && (tag != 7)){
+                return 3;//Direita
+            }
+            if((matriz[linha+1][coluna+1].valor != "#") && (tag != 8)){
+                return 4;//Diagonal direita inferior
+            }
+        }
+        else if(coluna == (N - 1)){
+            if((matriz[linha-1][coluna].valor != "#") && (tag != 5)){
+                return 1;//Cima
+            }
+            if((matriz[linha+1][coluna-1].valor != "#") && (tag != 2)){
+                return 6;//Diagonal esquerda inferior
+            }
+            if((matriz[linha][coluna-1].valor != "#") && (tag != 3)){
+                return 7;//Esquerda
+            }
+            if((matriz[linha-1][coluna-1].valor != "#") && (tag != 4)){
+                return 8;//Diagonal esquerda superior
+            }
+        }
+        else{
+            if((matriz[linha-1][coluna].valor != "#") && (tag != 5)){
+                return 1;//Cima
+            }
+            if((matriz[linha-1][coluna+1].valor != "#") && (tag != 6)){
+                return 2;//Diagonal direita superior
+            }
+            if((matriz[linha][coluna+1].valor != "#") && (tag != 7)){
+                return 3;//Direita
+            }
+            if((matriz[linha+1][coluna+1].valor != "#") && (tag != 8)){
+                return 4;//Diagonal direita inferior
+            }
+            if((matriz[linha+1][coluna-1].valor != "#") && (tag != 2)){
+                return 6;//Diagonal esquerda inferior
+            }
+            if((matriz[linha][coluna-1].valor != "#") && (tag != 3)){
+                return 7;//Esquerda
+            }
+            if((matriz[linha-1][coluna-1].valor != "#") && (tag != 4)){
                 return 8;//Diagonal esquerda superior
             }
         }
@@ -103,17 +150,107 @@ int caminhoDisponivel(itemMatriz ** matriz, int N, int linha, int coluna, int ta
 }
 
 void PercorrerMatrizProfundidade(itemMatriz **matriz, int N, int linha, int coluna, Lista * lista){
+    int tag = 5;
     inicializarCores(matriz, N);
     while(matriz[linha][coluna].valor != "?"){
-        while(linha != (N - 1)){
+        if(matriz[linha][coluna].valor == "*"){
+            matriz[linha][coluna].valor = "1";
+            linha = 0;
+            coluna = 0;
+            excluirLista(lista);
+            init(lista);
+            inicializarCores(matriz, N);
+            tag = 5;
+        }
+        if(matriz[linha][coluna].cor == "branco"){
+            insertInicio(lista, matriz[linha][coluna]);
             matriz[linha][coluna].cor = "cinza";
-            insertInicio(lista, lista->primeiro, matriz[linha][coluna]);
-            if((matriz[linha+1][coluna].valor) != "#"){
-                linha++;
-            }
-            else{
-                
-            }
+        }
+        cout << "Posição atual: " << linha << " " << coluna << endl;
+        LImprime(lista);
+        switch(tag){
+            case 0:
+                removerItemInicio(lista);
+                matriz[linha][coluna].cor = "preto";
+                linha = lista->primeiro->item.posicaoLinha;
+                coluna = lista->primeiro->item.posicaoColuna;
+            break;
+
+            case 1:
+                if((linha != 0) && ((matriz[linha-1][coluna].valor) != "#")){
+                    linha--;
+                }       
+                else{
+                    tag = caminhoDisponivel(matriz, N, linha, coluna, tag);
+                }                
+            break;
+
+            case 2:
+                if((linha != 0) && (coluna != (N-1)) && ((matriz[linha-1][coluna+1].valor) != "#")){
+                    linha--;
+                    coluna++;
+                }       
+                else{
+                    tag = caminhoDisponivel(matriz, N, linha, coluna, tag);
+                }                  
+            break;
+
+            case 3:
+                if((coluna != (N-1)) && ((matriz[linha][coluna+1].valor) != "#")){
+                    coluna++;
+                }       
+                else{
+                    tag = caminhoDisponivel(matriz, N, linha, coluna, tag);
+                }
+            break;
+
+            case 4:
+                if((linha != (N-1)) && (coluna != (N-1)) && ((matriz[linha+1][coluna+1].valor) != "#")){
+                    linha++;
+                    coluna++;
+                }       
+                else{
+                    tag = caminhoDisponivel(matriz, N, linha, coluna, tag);
+                }
+            break;
+
+            case 5:
+                if((linha != (N-1)) && ((matriz[linha+1][coluna].valor) != "#")){
+                    linha++;
+                }       
+                else{
+                    tag = caminhoDisponivel(matriz, N, linha, coluna, tag);
+                }
+            break;
+
+            case 6:
+                if((linha != (N-1)) && (coluna != 0) && ((matriz[linha+1][coluna-1].valor) != "#")){
+                    linha++;
+                    coluna--;
+                }       
+                else{
+                    tag = caminhoDisponivel(matriz, N, linha, coluna, tag);
+                }
+            break;
+
+            case 7:
+                if((coluna != 0) && ((matriz[linha][coluna-1].valor) != "#")){
+                    coluna--;
+                }       
+                else{
+                    tag = caminhoDisponivel(matriz, N, linha, coluna, tag);
+                }
+            break;
+
+            case 8:
+                if((linha != 0) && (coluna != 0) && ((matriz[linha-1][coluna-1].valor) != "#")){
+                    linha--;
+                    coluna--;
+                }       
+                else{
+                    tag = caminhoDisponivel(matriz, N, linha, coluna, tag);
+                }
+            break;
         }
     }
 }
