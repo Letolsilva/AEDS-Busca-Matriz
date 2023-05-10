@@ -31,16 +31,20 @@ int main(){
 
     ImprimirMatriz(matriz, N);
 
-    //PercorrerMatrizRandomica(matriz, linha, coluna, N, arquivoRandomica);
-    //matrizFinal(arquivoRandomica, matriz, N);
+    cout << "\nMATRIZ RANDÔMICA\n";
+    PercorrerMatrizRandomica(matriz, linha, coluna, N, arquivoRandomica);
+    matrizFinal(arquivoRandomica, matriz, N);
 
-    //LerArquivo(matriz, N);
-    //PercorrerMatrizLargura(matriz, N, linha, coluna, lista);
-    //matrizFinal(arquivoLargura, matriz, N);
+    cout << "\nMATRIZ LARGURA\n";
+    LerArquivo(matriz, N);
+    PercorrerMatrizLargura(matriz, N, linha, coluna, lista);
+    matrizFinal(arquivoLargura, matriz, N);
 
-    //excluirLista(lista);
+    excluirLista(lista);
+    init(lista);
     
-    //LerArquivo(matriz, N);
+    cout << "\nMATRIZ PROFUNDIDADE\n";
+    LerArquivo(matriz, N);
     PercorrerMatrizProfundidade(matriz, N, linha, coluna, lista);
     matrizFinal(arquivoProfundidade, matriz, N);
     

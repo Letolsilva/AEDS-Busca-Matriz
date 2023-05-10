@@ -29,6 +29,7 @@ void insertInicio(Lista * l, itemMatriz item){
     novo->item = item;
     novo->proximo = l->primeiro;
     l->primeiro = novo;
+    l->nItens++;
 }
 
 void LImprime(Lista *l){

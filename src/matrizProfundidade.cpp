@@ -13,135 +13,135 @@ int caminhoDisponivel(itemMatriz ** matriz, int N, int linha, int coluna, int ta
     */
     if(linha == 0){
         if(coluna == 0){
-            if((matriz[linha][coluna+1].valor != "#") && (tag != 7)){
+            if((matriz[linha][coluna+1].cor != "preto") && (matriz[linha][coluna+1].valor != "#") && (tag != 7)){
                 return 3;//Direita
             }
-            if((matriz[linha+1][coluna+1].valor != "#") && (tag != 8)){
+            if((matriz[linha+1][coluna+1].cor != "preto") && (matriz[linha+1][coluna+1].valor != "#") && (tag != 8)){
                 return 4;//Diagonal direita inferior
             }
-            if((matriz[linha+1][coluna].valor != "#") && (tag != 1)){
+            if((matriz[linha+1][coluna].cor != "preto") && (matriz[linha+1][coluna].valor != "#") && (tag != 1)){
                 return 5;//Baixo
             }
         }
         else if(coluna == (N - 1)){
-            if((matriz[linha+1][coluna].valor != "#") && (tag != 1)){
+            if((matriz[linha+1][coluna].cor != "preto") && (matriz[linha+1][coluna].valor != "#") && (tag != 1)){
                 return 5;//Baixo
             }
-            if((matriz[linha+1][coluna-1].valor != "#") && (tag != 2)){
+            if((matriz[linha+1][coluna-1].cor != "preto") && (matriz[linha+1][coluna-1].valor != "#") && (tag != 2)){
                 return 6;//Diagonal esquerda inferior
             }
-            if((matriz[linha][coluna-1].valor != "#") && (tag != 3)){
+            if((matriz[linha][coluna-1].cor != "preto") && (matriz[linha][coluna-1].valor != "#") && (tag != 3)){
                 return 7;//Esquerda
             }
         }
         else{
-            if((matriz[linha][coluna+1].valor != "#") && (tag != 7)){
+            if((matriz[linha][coluna+1].cor != "preto") && (matriz[linha][coluna+1].valor != "#") && (tag != 7)){
                 return 3;//Direita
             }
-            if((matriz[linha+1][coluna+1].valor != "#") && (tag != 8)){
+            if((matriz[linha+1][coluna+1].cor != "preto") && (matriz[linha+1][coluna+1].valor != "#") && (tag != 8)){
                 return 4;//Diagonal direita inferior
             }
-            if((matriz[linha+1][coluna].valor != "#") && (tag != 1)){
+            if((matriz[linha+1][coluna].cor != "preto") && (matriz[linha+1][coluna].valor != "#") && (tag != 1)){
                 return 5;//Baixo
             }
-            if((matriz[linha+1][coluna-1].valor != "#") && (tag != 2)){
+            if((matriz[linha+1][coluna-1].cor != "preto") && (matriz[linha+1][coluna-1].valor != "#") && (tag != 2)){
                 return 6;//Diagonal esquerda inferior
             }
-            if((matriz[linha][coluna-1].valor != "#") && (tag != 3)){
+            if((matriz[linha][coluna-1].cor != "preto") && (matriz[linha][coluna-1].valor != "#") && (tag != 3)){
                 return 7;//Esquerda
             }
         }
     }
     else if(linha == (N - 1)){
         if(coluna == 0){
-            if((matriz[linha-1][coluna].valor != "#") && (tag != 5)){
+            if((matriz[linha-1][coluna].cor != "preto") && (matriz[linha-1][coluna].valor != "#") && (tag != 5)){
                 return 1;//Cima
             }
-            if((matriz[linha-1][coluna+1].valor != "#") && (tag != 6)){
+            if((matriz[linha-1][coluna+1].cor != "preto") && (matriz[linha-1][coluna+1].valor != "#") && (tag != 6)){
                 return 2;//Diagonal direita superior
             }
-            if((matriz[linha][coluna+1].valor != "#") && (tag != 7)){
+            if((matriz[linha][coluna+1].cor != "preto") && (matriz[linha][coluna+1].valor != "#") && (tag != 7)){
                 return 3;//Direita
             }
         }
         else if(coluna == (N - 1)){
-            if((matriz[linha-1][coluna].valor != "#") && (tag != 5)){
+            if((matriz[linha-1][coluna].cor != "preto") && (matriz[linha-1][coluna].valor != "#") && (tag != 5)){
                 return 1;//Cima
             }
-            if((matriz[linha][coluna-1].valor != "#") && (tag != 3)){
+            if((matriz[linha][coluna-1].cor != "preto") && (matriz[linha][coluna-1].valor != "#") && (tag != 3)){
                 return 7;//Esquerda
             }
-            if((matriz[linha-1][coluna-1].valor != "#") && (tag != 4)){
+            if((matriz[linha-1][coluna-1].cor != "preto") && (matriz[linha-1][coluna-1].valor != "#") && (tag != 4)){
                 return 8;//Diagonal esquerda superior
             }
         }
         else{
-            if((matriz[linha-1][coluna].valor != "#") && (tag != 5)){
+            if((matriz[linha-1][coluna].cor != "preto") && (matriz[linha-1][coluna].valor != "#") && (tag != 5)){
                 return 1;//Cima
             }
-            if((matriz[linha-1][coluna+1].valor != "#") && (tag != 6)){
+            if((matriz[linha-1][coluna+1].cor != "preto") && (matriz[linha-1][coluna+1].valor != "#") && (tag != 6)){
                 return 2;//Diagonal direita superior
             }
-            if((matriz[linha][coluna+1].valor != "#") && (tag != 7)){
+            if((matriz[linha][coluna+1].cor != "preto") && (matriz[linha][coluna+1].valor != "#") && (tag != 7)){
                 return 3;//Direita
             }
-            if((matriz[linha][coluna-1].valor != "#") && (tag != 3)){
+            if((matriz[linha][coluna-1].cor != "preto") && (matriz[linha][coluna-1].valor != "#") && (tag != 3)){
                 return 7;//Esquerda
             }
-            if((matriz[linha-1][coluna-1].valor != "#") && (tag != 4)){
+            if((matriz[linha-1][coluna-1].cor != "preto") && (matriz[linha-1][coluna-1].valor != "#") && (tag != 4)){
                 return 8;//Diagonal esquerda superior
             }
         }
     }
     else{
         if(coluna == 0){
-            if((matriz[linha-1][coluna].valor != "#") && (tag != 5)){
+            if((matriz[linha-1][coluna].cor != "preto") && (matriz[linha-1][coluna].valor != "#") && (tag != 5)){
                 return 1;//Cima
             }
-            if((matriz[linha-1][coluna+1].valor != "#") && (tag != 6)){
+            if((matriz[linha-1][coluna+1].cor != "preto") && (matriz[linha-1][coluna+1].valor != "#") && (tag != 6)){
                 return 2;//Diagonal direita superior
             }
-            if((matriz[linha][coluna+1].valor != "#") && (tag != 7)){
+            if((matriz[linha][coluna+1].cor != "preto") && (matriz[linha][coluna+1].valor != "#") && (tag != 7)){
                 return 3;//Direita
             }
-            if((matriz[linha+1][coluna+1].valor != "#") && (tag != 8)){
+            if((matriz[linha+1][coluna+1].cor != "preto") && (matriz[linha+1][coluna+1].valor != "#") && (tag != 8)){
                 return 4;//Diagonal direita inferior
             }
         }
         else if(coluna == (N - 1)){
-            if((matriz[linha-1][coluna].valor != "#") && (tag != 5)){
+            if((matriz[linha-1][coluna].cor != "preto") && (matriz[linha-1][coluna].valor != "#") && (tag != 5)){
                 return 1;//Cima
             }
-            if((matriz[linha+1][coluna-1].valor != "#") && (tag != 2)){
+            if((matriz[linha+1][coluna-1].cor != "preto") && (matriz[linha+1][coluna-1].valor != "#") && (tag != 2)){
                 return 6;//Diagonal esquerda inferior
             }
-            if((matriz[linha][coluna-1].valor != "#") && (tag != 3)){
+            if((matriz[linha][coluna-1].cor != "preto") && (matriz[linha][coluna-1].valor != "#") && (tag != 3)){
                 return 7;//Esquerda
             }
-            if((matriz[linha-1][coluna-1].valor != "#") && (tag != 4)){
+            if((matriz[linha-1][coluna-1].cor != "preto") && (matriz[linha-1][coluna-1].valor != "#") && (tag != 4)){
                 return 8;//Diagonal esquerda superior
             }
         }
         else{
-            if((matriz[linha-1][coluna].valor != "#") && (tag != 5)){
+            if((matriz[linha-1][coluna].cor != "preto") && (matriz[linha-1][coluna].valor != "#") && (tag != 5)){
                 return 1;//Cima
             }
-            if((matriz[linha-1][coluna+1].valor != "#") && (tag != 6)){
+            if((matriz[linha-1][coluna+1].cor != "preto") && (matriz[linha-1][coluna+1].valor != "#") && (tag != 6)){
                 return 2;//Diagonal direita superior
             }
-            if((matriz[linha][coluna+1].valor != "#") && (tag != 7)){
+            if((matriz[linha][coluna+1].cor != "preto") && (matriz[linha][coluna+1].valor != "#") && (tag != 7)){
                 return 3;//Direita
             }
-            if((matriz[linha+1][coluna+1].valor != "#") && (tag != 8)){
+            if((matriz[linha+1][coluna+1].cor != "preto") && (matriz[linha+1][coluna+1].valor != "#") && (tag != 8)){
                 return 4;//Diagonal direita inferior
             }
-            if((matriz[linha+1][coluna-1].valor != "#") && (tag != 2)){
+            if((matriz[linha+1][coluna-1].cor != "preto") && (matriz[linha+1][coluna-1].valor != "#") && (tag != 2)){
                 return 6;//Diagonal esquerda inferior
             }
-            if((matriz[linha][coluna-1].valor != "#") && (tag != 3)){
+            if((matriz[linha][coluna-1].cor != "preto") && (matriz[linha][coluna-1].valor != "#") && (tag != 3)){
                 return 7;//Esquerda
             }
-            if((matriz[linha-1][coluna-1].valor != "#") && (tag != 4)){
+            if((matriz[linha-1][coluna-1].cor != "preto") && (matriz[linha-1][coluna-1].valor != "#") && (tag != 4)){
                 return 8;//Diagonal esquerda superior
             }
         }
@@ -167,6 +167,7 @@ void PercorrerMatrizProfundidade(itemMatriz **matriz, int N, int linha, int colu
             matriz[linha][coluna].cor = "cinza";
         }
         cout << "Posição atual: " << linha << " " << coluna << endl;
+        cout << tag << endl;
         LImprime(lista);
         switch(tag){
             case 0:
@@ -174,6 +175,7 @@ void PercorrerMatrizProfundidade(itemMatriz **matriz, int N, int linha, int colu
                 matriz[linha][coluna].cor = "preto";
                 linha = lista->primeiro->item.posicaoLinha;
                 coluna = lista->primeiro->item.posicaoColuna;
+                tag = caminhoDisponivel(matriz, N, linha, coluna, tag);
             break;
 
             case 1:
@@ -253,4 +255,6 @@ void PercorrerMatrizProfundidade(itemMatriz **matriz, int N, int linha, int colu
             break;
         }
     }
+    cout << "\nACHADO O FIM!!" << endl;
+    cout << "POSIÇÂO: [" << linha << "]" << "[" << coluna << "]"  << endl;
 }
