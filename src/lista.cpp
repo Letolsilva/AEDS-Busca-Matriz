@@ -67,5 +67,5 @@ void excluirLista(Lista * l){
     while(!listaVazia(l)){
         removerItemInicio(l);
     }
-    free(l);
+    //free(l);
 }

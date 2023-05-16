@@ -3,6 +3,8 @@
         "*.embeddedhtml": "html",
         "xstring": "cpp",
         "tuple": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "iomanip": "cpp",
+        "chrono": "cpp"
     }
 }
