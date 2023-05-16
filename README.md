@@ -28,7 +28,7 @@ O algoritmo aleatório utiliza um caminhamento aleatório para explorar a matriz
 Ambos os algoritmos, BFS e DFS, foram implementados para percorrer uma matriz e visitar todas as suas posições ate encontrarem a posição do carctaer especial('?').
 </p>
 
-## Objetivos
+## 💻Objetivos
 
 O objetivo desta atividade é desenvolver algoritmos que permitam que um programa encontre o caractere '?' (interrogação) em uma matriz que representa um labirinto, utilizando os algoritmos de busca em largura, profundidade e aleatória. Para isso, foi implementado algoritmos para visitar todas as posições da matriz a partir de uma posição inicial, adotada para todos os casos como: [0][0], e procurar pelo caractere '?' em cada uma dessas matrizes.
 
@@ -65,7 +65,7 @@ Necessidade de possuir uma matriz contendo o numero 1 e somente dois tipos de ca
 '#' -Representa parede
 '*' -Representa dano
 
-## Arquivos
+## 📄Arquivos
 - <strong>Main.cpp:</strong> É chamada a função que ira retronar o tamanho da matriz presente no arquivo input.data, e é nela que é chamado tambem as funções respectivas para cada algoritmos de busca: PercorrerMatrizRandomica, PercorrerMatrizLargura, PercorrerMatrizProfundidade.
 - <strong>FunçõesArquivo.hpp:</strong> Criada as funções que irao manipular o arquivo input.data.
 - <strong>FunçõesArquivo.cpp:</strong> Feita a estruturação das funções criadas no arquivo FunçõesArquivo.hpp.
@@ -80,9 +80,9 @@ Necessidade de possuir uma matriz contendo o numero 1 e somente dois tipos de ca
 - <strong>MatrizRandomica.cpp:</strong> Criada as funções para o funcionamento do algoritmo de busca de forma randomica.
 - <strong>MatrizRandomica.hpp:</strong> Feita a estruturação das funções criadas no arquivo MatrizRandomica.hpp.
 
-## Resolução do problema
-<h4>Busca randômica</h4>
-<h4>Busca em largura</h4>
+## 🔨Resolução do problema
+<h3><b>Busca randômica</b></h3>
+<h3><b>Busca em largura</b></h3>
 
 As funções principais foram: ```verFronteiras``` e ```PercorrerMatrizLargura```, nelas são feitas as implementações do desenvolvimento do código.
 
@@ -94,10 +94,36 @@ essa função verifica quais posições são possíveis de serem acessadas e adi
 <b> Função PercorrerMatrizLargura </b>
 inicialmente, é chamada a função ``` inicializarCores```, na qual a cor de todas as posições da matriz começa como branco, indicando que todas as posições ainda não foram visitadas. A iteração ocorre enquanto não for encontrado o caractere especial ('?'). Para encontrá-lo, primeiro é verificada sua posição atual. Caso seja perigoso ('*'), a posição se torna 1 e ele retorna para a posição inicial, excluindo a lista e todas as posições retornam para a cor branca. Caso contrário, são verificadas suas fronteiras utilizando a função verFronteiras. Os vizinhos são alterados para a cor cinza e salvos na fila. A partir do primeiro da fila, atualiza-se a posição atual percorrendo a matriz.
 
-<h4>Busca em profundidade</h4>
+<h3><b>Busca em profundidade</b></h3>
+De maneira geral nesse algoritmo de busca, a logica é feita a partir de TAG's que irao representar cada posição a ser tomada e suas funções principais são a `caminhoDisponivel` e `PercorrerMatrizProfundidade`, nela adotamos uma forma de caminhamento por TAG, a partir da TAG em que estivermos é a posição a ser seguida e salvamos sempre em uma fila, a partir disso tambem é possivel verificar se nao estamos voltando pelo mesmo caminho em que chegamos ate a posição, pois se estivermos deve ser retirado da fila a posição correspondente.<br>
+- <b>OBS:</b>  A TAG sempre se inicializa com o caminhamento sendo para baixo.<br>
 
+<b>Função 'PercorrerMatrizProfundidade'</b><br>
+Inicialmente é inicializado todos os itens da matriz para a cor branca, logo apos a iteração ocorre ate que encontremos o caracter especial('?'), o caminhamento começa e olhamos se é uma posição possivel a ser seguida, se em caso de parede('#') devemos seguir outra direção, se em caso de um perigo('*'), devemos voltar à posição inicial, excluir todos os itens armazenados em nossa fila e reinciar todos os itens da matriz para a cor branca, já para o caso em que nenhuma das opções ditas sao satisfeitas é porque é um caminho possivel e podemos ir ate ele dessa forma mudamos a cor da posição correspondente para a cor cinza e adicionamos ao inicio da fila essa posição, pelo switch vamos saber qual posição seguiremos, pois em cada 'case' dele corresponde a uma posição que adotamos para o caminhamento na matriz, dentro de cada 'case', é verificado se podemos continuar no caminho pela TAG correspondete, por exemplo, se a TAG é o numero 5 (baixo), é verificado no case 5 se podemos continuar indo para baixo, se em caso negativo a TAG deverá mudar e iremos agora adotar uma nova direção a ser seguida, para isso é chamado a função `caminhoDisponivel` que nela ira retornar o numero para a TAG e a nova posição a ser seguida, isso ocorre ate que seja encontrado o caractere '?'. <br>
+- <b>OBS:</b> O case 0 so ocorre quando visto que estivermos 'presos', ou seja, todas as posições ao nosso entorno são paredes, dessa maneira devemos desenfileirar a fila e a posição agora fica marcada com a cor preta e nao é possivel ser visitada novamente.<br>
 
+<b>Função 'caminhoDisponivel'</b><br>
+Essa função irá nos retornar a nova direção a ser seguida pelo algoritmo, nela é feita a verificação se a posição que vamos seguir nao é a que chegamos ate ela, pois se for deve ser feito o desenfileiramento da fila nela tambem é visto se estamos presos ou nao.
 
+Caminhamento adotado pelas TAG:
+
+<div align="center">
+
+| TAG              | Direção                                                 |                     
+| -----------------| --------------------------------------------------------|
+| 0                |   Necessario desenfileirar a fila                       |
+| 1                |   Cima                                                  |
+| 2                |   Diagonal direita superior                             |
+| 3                |   Direita                                               |
+| 4                |   Diagonal direita inferior                             |
+| 5                |   Baixo                                                 |
+| 6                |   Diagonal esquerda inferior                            |
+| 7                |   Esquerda                                              |
+| 8                |   Diagonal esquerda superior                            |
+
+<li>É seguido um caminhamento no sentido horario.</li>
+<li>Outros valores diferentes dos mostrados na tabela podem levar ao mal funcionamento do código.</li>
+</div>
 
 
 
