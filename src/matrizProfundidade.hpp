@@ -9,3 +9,4 @@
 #include "matrizLargura.hpp"
 
 void PercorrerMatrizProfundidade(itemMatriz **matriz, int N, int linha, int coluna, Lista * lista);
+int caminhoDisponivel(itemMatriz ** matriz, int N, int linha, int coluna, int tag);
