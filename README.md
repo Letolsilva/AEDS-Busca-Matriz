@@ -81,7 +81,20 @@ Necessidade de possuir uma matriz contendo o numero 1 e somente dois tipos de ca
 - <strong>MatrizRandomica.hpp:</strong> Feita a estruturação das funções criadas no arquivo MatrizRandomica.hpp.
 
 ## Resolução do problema
+<h4>Busca randômica</h4>
+<h4>Busca em largura</h4>
 
+As funções principais foram: ```verFronteiras``` e ```PercorrerMatrizLargura```, nelas são feitas as implementações do desenvolvimento do código.
+
+<b> Função verFronteiras </b>
+essa função verifica quais posições são possíveis de serem acessadas e adicionadas na fila. A partir da posição atual, verifica-se as posições adjacentes e quais são caminháveis, ou seja, as casas que estão em branco e não são paredes. Caso isso aconteça, a condição do if é satisfeita e o item da matriz, contendo seu valor, cor e posição, é adicionado ao final da fila.
+<!-- IMAGEMMMM da matriz dos vizinhos -->
+<!-- TABELA DOS SENTIDOS de prioridade da inserção na fila -->
+
+<b> Função PercorrerMatrizLargura </b>
+inicialmente, é chamada a função ``` inicializarCores```, na qual a cor de todas as posições da matriz começa como branco, indicando que todas as posições ainda não foram visitadas. A iteração ocorre enquanto não for encontrado o caractere especial ('?'). Para encontrá-lo, primeiro é verificada sua posição atual. Caso seja perigoso ('*'), a posição se torna 1 e ele retorna para a posição inicial, excluindo a lista e todas as posições retornam para a cor branca. Caso contrário, são verificadas suas fronteiras utilizando a função verFronteiras. Os vizinhos são alterados para a cor cinza e salvos na fila. A partir do primeiro da fila, atualiza-se a posição atual percorrendo a matriz.
+
+<h4>Busca em profundidade</h4>
 
 
 
