@@ -61,6 +61,12 @@ int main(){
     arquivoLargura.close();
     arquivoProfundidade.close();
     arquivoRandomica.close();
-
+    //Liberação da matriz
+    for(int i = 0; i < N; i++){
+        free(matriz[i]);
+    }
+    free(matriz);
+    excluirLista(lista);
+    
     return 0;
 }
