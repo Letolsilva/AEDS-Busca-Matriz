@@ -1,4 +1,4 @@
-<h1 align="center" font-size="200em"><b>Labirinto DFS e BFS</b></h1>
+<h1 align="center" font-size="200em"><b>Busca DFS, BFS e randômica</b></h1>
 
 <div align = "center" >
 <!-- imagem -->
@@ -98,19 +98,19 @@ Essa função tem como criterio de decisão qual direção o algoritmo adotará,
   </tr>
   <tr>
       <td>4</td>
-      <td>Diagonal esq. sup.</td>
+      <td>Diagonal esquerda superior.</td>
   </tr>
   <tr>
       <td>5</td>
-      <td>Diagonal dir. sup.</td>
+      <td>Diagonal direita superior.</td>
   </tr>
   <tr>
       <td>6</td>
-      <td>Diagonal esq. inf.</td>
+      <td>Diagonal esquerda inferior</td>
   </tr>
   <tr>
       <td>7</td>
-      <td>Diagonal dir. inf.</td>
+      <td>Diagonal direita inferior.</td>
   </tr>
 </table>
 
@@ -196,27 +196,24 @@ Prioridade adotada pela TAG:
  <a href="https://t.me/juliarezende34">
  <img align="center" src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"/> 
  </div>
-
 <a style="color:black" href="mailto:juliarezende34@gmail.com?subject=[GitHub]%20Source%20Dynamic%20Lists">
 ✉️ <i>juliarezende34@gmail.com</i>
 </a>
-
+ 
 <div>
- <p align="justify"> Jullia Fernandes</p>
+ <br><p align="justify"> Jullia Fernandes</p>
  <a href="https://t.me/JulliaFernandes">
  <img align="center" src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"/> 
  </div>
-
 <a style="color:black" href="mailto:julliacefet@gmail.com?subject=[GitHub]%20Source%20Dynamic%20Lists">
 ✉️ <i>julliacefet@gmail.com</i>
 </a>
 
 <div>
- <p align="justify"> Letícia de Oliveira</p>
+ <br><p align="justify"> Letícia de Oliveira</p>
  <a href="https://t.me/letolsilva">
  <img align="center" src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"/> 
  </div>
-
 <a style="color:black" href="mailto:letolsilva22@gmail.com?subject=[GitHub]%20Source%20Dynamic%20Lists">
 ✉️ <i>letolsilva22@gmail.com</i>
 </a>
