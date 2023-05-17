@@ -8,7 +8,7 @@
 ![Linguagem](https://img.shields.io/badge/Linguagem-C%2B%2B-blue)
 </div>
 
-## Sumário
+## 📌Sumário
 - [Introdução](#Introdução)
 - [Objetivos](#Objetivos)
 - [Problema apresentado](#Problema-apresentado)
@@ -19,7 +19,7 @@
 - [Compilação e execução](#Compilação-e-execução)
 - [Contato](#Contato)
 
-## Introdução
+## ✒️Introdução
 <p align="justify">
 Este é um programa desenvolvido em C++ para a disciplina de Algoritmos e Estruturas de Dados I. O objetivo do programa é realizar o caminhamento em matrizes de três maneiras diferentes: aleatória, DFS (Busca em Profundidade) e BFS (Busca em Largura). Esses algoritmos de busca foram implementados de modo que ache a posição que contenha o caracter especial '?'.<br>
 O algoritmo de largura (BFS) é utilizado para verificar as posições adjacentes a partir da posição atual. A partir de uma matriz qualquer, o algoritmo opta por visitar todas as relações de adjacência a cada interação antes de avançar para uma nova posição. Já o algoritmo de profundidade (DFS) utiliza a matriz para encontrar todas as posições alcançáveis, num mesmo sentido de caminhamento, a partir de um determinado vértice inicial. Esse algoritmo percorre uma mesma direção até que não seja mais possível andar, antes de trocar de sentido de caminhamento. <br> 
@@ -119,6 +119,16 @@ Essa função tem como criterio de decisão qual direção o algoritmo adotará,
  - Ao encontrado com um perigo ('*') a posição do perigo e trocada para o numero 1.<br>
  - É criado um arquivo `outputRandomico.data`, que ira armazenar a matriz modificada ou nao ao final do jogo, dessa maneira o usuario poderá comparar com as matrizes presente no arquivo `input.data` e ver as posições que foram acessadas pelo personagem.<br>
 
+<div align="center">
+  <img src="/imgs/Rand1.png" alt="Rand2" width=300px>
+  <img src="/imgs/Rand2.png" alt "Rand1" width=300px>
+</div>
+
+<h3>Exemplo de uma busca randomica:</h3>
+<div align="center">
+  <img src="/imgs/GifRandomico.gif.gif" alt="gif" width=300px>
+</div>
+
 <h3><b>Busca em largura</b></h3>
 
 As funções principais foram: ```verFronteiras``` e ```PercorrerMatrizLargura```, nelas são feitas as implementações do desenvolvimento do código.
@@ -139,6 +149,11 @@ Segue-se a seguinte ordem de prioridade para inserção dos vizinhos na fila:
 | 6                |   Diagonal esquerda inferior                            |
 | 7                |   Esquerda                                              |
 | 8                |   Diagonal esquerda superior                            |
+</div>
+
+<div align="center">
+  <img src="/imgs/Largura.png" alt="BuscaEmLargura" width=300px>
+  <p align="center"><em> Cada cor representa as posições que foram salvas na fila e sua sequencia em que foi colocada.</em></p>
 </div>
 
 <b> Função PercorrerMatrizLargura </b>
@@ -175,14 +190,19 @@ Prioridade adotada pela TAG:
 <li>É seguido uma ordem de prioridade do caminhamento no sentido horario.</li>
 <li>Outros valores diferentes dos mostrados na tabela podem levar ao mau funcionamento do código.</li>
 
-## Resultados
-## Conclusão
+<div align="center">
+  <img src="/imgs/Profundidade.png" alt="Pasta Dataset" width=300px>
+  <p align="center"><em> Cada cor representa uma direção a ser tomada por vez. <br> Os numeros seguem o da tabela acima.</em></p>
+</div>
+
+## 🎯Resultados
+## ✔️Conclusão
 Ao final deste código, pode-se observar que as buscas randômicas, BFS e a DFS são muito diferentes e têm aplicações muito distintas.
 A diferença mais marcante entre as buscas está nas estruturas de dados auxiliares empregadas pelas duas estratégias. Enquanto a busca randômica não segue um caminho previsível e percorre aleatoriamente, a BFS utiliza uma fila de posições, e a DFS utiliza uma pilha, sendo possível estimar o percurso realizado por ambas as estratégias com base na entrada e na matriz a ser percorrida. Além disso, podemos observar que  a DFS visita todas as posições de uma matriz sem interferência da posição inicial, enquanto a BFS visita apenas as posições que estão ao alcance da posição inicia. Essas características nos permitem analisar em quais casos cada algoritmo é ideal. Por exemplo, se soubermos que a solução (representada pelo caractere '?'), está em algum lugar longe do vértice de origem da matriz, usamos o DFS. Se soubermos que a solução não está tão longe da origem, usamos o BFS.
 
 Em relação a complexidade do tempo, podemos calcular de maneira geral que o DFS e o BFS possuem uma complexidade de O(V + E), onde V e E são o número total de vértices e arestas no grafo, respectivamente, em uma matriz V seria as posições e E a quantidade de passos.
 
-## Compilação e execução
+## 👾Compilação e execução
 * Após as manipulações, a memória da matriz e da lista são liberadas e os arquivos são fechados.
 * Especificações da máquina em que o código foi rodado:
   * Processador Intel Core i5, 7th Gen;
