@@ -176,6 +176,11 @@ Prioridade adotada pela TAG:
 <li>Outros valores diferentes dos mostrados na tabela podem levar ao mau funcionamento do código.</li>
 
 ## Resultados
+## Conclusão
+Ao final deste código, pode-se observar que as buscas randômicas, BFS e a DFS são muito diferentes e têm aplicações muito distintas.
+A diferença mais marcante entre as buscas está nas estruturas de dados auxiliares empregadas pelas duas estratégias. Enquanto a busca randômica não segue um caminho previsível e percorre aleatoriamente, a BFS utiliza uma fila de posições, e a DFS utiliza uma pilha, sendo possível estimar o percurso realizado por ambas as estratégias com base na entrada e na matriz a ser percorrida. Além disso, podemos observar que  a DFS visita todas as posições de uma matriz sem interferência da posição inicial, enquanto a BFS visita apenas as posições que estão ao alcance da posição inicia. Essas características nos permitem analisar em quais casos cada algoritmo é ideal. Por exemplo, se soubermos que a solução (representada pelo caractere '?'), está em algum lugar longe do vértice de origem da matriz, usamos o DFS. Se soubermos que a solução não está tão longe da origem, usamos o BFS.
+
+Em relação a complexidade do tempo, podemos calcular de maneira geral que o DFS e o BFS possuem uma complexidade de O(V + E), onde V e E são o número total de vértices e arestas no grafo, respectivamente, em uma matriz V seria as posições e E a quantidade de passos.
 
 ## Compilação e execução
 * Após as manipulações, a memória da matriz e da lista são liberadas e os arquivos são fechados.
@@ -218,4 +223,3 @@ Prioridade adotada pela TAG:
 ✉️ <i>letolsilva22@gmail.com</i>
 </a>
 
-<!-- O algoritmo BFS utiliza uma fila (queue) para armazenar os elementos a serem visitados. O algoritmo começa com um elemento inicial e o adiciona à fila. Em seguida, o algoritmo retira o primeiro elemento da fila e visita todos os seus vizinhos (elementos conectados a ele), adicionando-os à fila. O processo continua até que não haja mais elementos na fila para visitar. -->
