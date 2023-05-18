@@ -210,6 +210,33 @@ Prioridade adotada pela TAG:
 </div>
 
 ## 🎯Resultados
+Ao final das buscas, é impresso no terminal a posição em que o caracter especial foi encontrado, o tempo de execução e o número de passos dados de determinada busca.
+Para calcularmos o tempo de execução de cada tipo de busca, utilizamos a biblioteca `chrono`, que mede o tempo decorrido entre dois pontos do código. Criou-se uma variável para salvar o tempo inicial e à medida em que as matrizes eram percorridas, o tempo atual é salvo e a duração da execução é gerada pela diferença entre ele e o tempo inicial. A ordem de execução foi: busca randômica, busca em largura e busca em profundidade, sendo que para as duas últimas situações, a duração da execução é calculada a partir da diferença entre o tempo final, o tempo inicial e o tempo de execução das buscas anteriores. Por exemplo, para calcular o tempo de execução da busca em profundidade, fez-se: `Duração = Tempo final - tempo inicial - duração busca em largura - duração busca randômica`.
+Para os resultados abaixo, foi utilizada uma matriz de tamanho 50x50, sendo a situação padrão dos perigos e paredes utilizada na mudança de posição da `?` disponível em `input.data`
+- Matriz com `?` na última posição
+  - Busca randômica: 5.70 ms e 53757 passos
+  - Busca em largura: 35.58 ms e 51210 passos
+  - Busca em profundidade: 5.32 ms e 18860 passos
+- Matriz com `?` no meio
+  - Situação padrão
+    - Busca randômica: 2.06 ms e 904 passos
+    - Busca em largura: 5.46 ms e 3328 passos
+    - Busca em profundidade: 11.46 ms e 29172 passos
+  - Número de perigos maior
+    - Busca randômica: 6.80 ms e 42185 passos
+    - Busca em largura: 48.85 ms e 62780 passos
+    - Busca em profundidade: 86.83 ms e 441880 passos
+  - Número de paredes maior
+    - Busca randômica: 2.76 ms e 14108 passos
+    - Busca em largura: 3.98 ms e 1690 passos
+    - Busca em profundidade: 7.73 ms e 25015 passos
+- Matriz com `?` na posição [0][1]
+  - Busca randômica: 0.94 ms e 183 passos
+  - Busca em largura: 2.78 ms e 1 passo
+  - Busca em profundidade: 8.70 ms e 26471 passos
+
+**Relações**
+
 ## ✔️Conclusão
 Ao final deste código, pode-se observar que as buscas randômicas, BFS e a DFS são muito diferentes e têm aplicações muito distintas.
 A diferença mais marcante entre as buscas está nas estruturas de dados auxiliares empregadas pelas duas estratégias. Enquanto a busca randômica não segue um caminho previsível e percorre aleatoriamente, a BFS utiliza uma fila de posições, e a DFS utiliza uma pilha, sendo possível estimar o percurso realizado por ambas as estratégias com base na entrada e na matriz a ser percorrida. Além disso, podemos observar que  a DFS visita todas as posições de uma matriz sem interferência da posição inicial, enquanto a BFS visita apenas as posições que estão ao alcance da posição inicia. Essas características nos permitem analisar em quais casos cada algoritmo é ideal. Por exemplo, se soubermos que a solução (representada pelo caractere '?'), está em algum lugar longe do vértice de origem da matriz, usamos o DFS. Se soubermos que a solução não está tão longe da origem, usamos o BFS.

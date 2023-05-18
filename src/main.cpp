@@ -10,7 +10,6 @@
 #include "matrizProfundidade.hpp"
 
 int main(){
-    chrono::steady_clock::time_point inicio = chrono::steady_clock::now();
     ofstream arquivoRandomica, arquivoLargura, arquivoProfundidade;
     int N, linha=0, coluna=0, passosLargura=0, passosProfundidade=0, passosRandomica=0;
     Lista * lista = new Lista();
@@ -32,8 +31,9 @@ int main(){
     LerArquivo(matriz, N);
     cout << "TAM MATRIZ: " << N << endl;
 
-    ImprimirMatriz(matriz, N);
+    //ImprimirMatriz(matriz, N);
 
+    chrono::steady_clock::time_point inicio = chrono::steady_clock::now();
     cout << "\n---[MATRIZ RANDÔMICA]---";
     PercorrerMatrizRandomica(matriz, linha, coluna, N, passosRandomica);
     matrizFinal(arquivoRandomica, matriz, N);
