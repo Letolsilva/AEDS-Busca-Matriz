@@ -149,7 +149,7 @@ int caminhoDisponivel(itemMatriz ** matriz, int N, int linha, int coluna, int ta
     return controle;
 }
 
-void PercorrerMatrizProfundidade(itemMatriz **matriz, int N, int linha, int coluna, Lista * lista){
+void PercorrerMatrizProfundidade(itemMatriz **matriz, int N, int linha, int coluna, Lista * lista, int &passosProfundidade){
     int tag = 5;
     inicializarCores(matriz, N);
     while(matriz[linha][coluna].valor != "?"){        
@@ -178,6 +178,7 @@ void PercorrerMatrizProfundidade(itemMatriz **matriz, int N, int linha, int colu
             case 1:
                 if((linha != 0) && ((matriz[linha-1][coluna].valor) != "#")){
                     linha--;
+                    passosProfundidade++;
                 }       
                 else{
                     tag = caminhoDisponivel(matriz, N, linha, coluna, tag);
@@ -188,6 +189,7 @@ void PercorrerMatrizProfundidade(itemMatriz **matriz, int N, int linha, int colu
                 if((linha != 0) && (coluna != (N-1)) && ((matriz[linha-1][coluna+1].valor) != "#")){
                     linha--;
                     coluna++;
+                    passosProfundidade++;
                 }       
                 else{
                     tag = caminhoDisponivel(matriz, N, linha, coluna, tag);
@@ -197,6 +199,7 @@ void PercorrerMatrizProfundidade(itemMatriz **matriz, int N, int linha, int colu
             case 3:
                 if((coluna != (N-1)) && ((matriz[linha][coluna+1].valor) != "#")){
                     coluna++;
+                    passosProfundidade++;
                 }       
                 else{
                     tag = caminhoDisponivel(matriz, N, linha, coluna, tag);
@@ -207,6 +210,7 @@ void PercorrerMatrizProfundidade(itemMatriz **matriz, int N, int linha, int colu
                 if((linha != (N-1)) && (coluna != (N-1)) && ((matriz[linha+1][coluna+1].valor) != "#")){
                     linha++;
                     coluna++;
+                    passosProfundidade++;
                 }       
                 else{
                     tag = caminhoDisponivel(matriz, N, linha, coluna, tag);
@@ -216,6 +220,7 @@ void PercorrerMatrizProfundidade(itemMatriz **matriz, int N, int linha, int colu
             case 5:
                 if((linha != (N-1)) && ((matriz[linha+1][coluna].valor) != "#")){
                     linha++;
+                    passosProfundidade++;
                 }       
                 else{
                     tag = caminhoDisponivel(matriz, N, linha, coluna, tag);
@@ -226,6 +231,7 @@ void PercorrerMatrizProfundidade(itemMatriz **matriz, int N, int linha, int colu
                 if((linha != (N-1)) && (coluna != 0) && ((matriz[linha+1][coluna-1].valor) != "#")){
                     linha++;
                     coluna--;
+                    passosProfundidade++;
                 }       
                 else{
                     tag = caminhoDisponivel(matriz, N, linha, coluna, tag);
@@ -235,6 +241,7 @@ void PercorrerMatrizProfundidade(itemMatriz **matriz, int N, int linha, int colu
             case 7:
                 if((coluna != 0) && ((matriz[linha][coluna-1].valor) != "#")){
                     coluna--;
+                    passosProfundidade++;
                 }       
                 else{
                     tag = caminhoDisponivel(matriz, N, linha, coluna, tag);
@@ -245,6 +252,7 @@ void PercorrerMatrizProfundidade(itemMatriz **matriz, int N, int linha, int colu
                 if((linha != 0) && (coluna != 0) && ((matriz[linha-1][coluna-1].valor) != "#")){
                     linha--;
                     coluna--;
+                    passosProfundidade++;
                 }       
                 else{
                     tag = caminhoDisponivel(matriz, N, linha, coluna, tag);

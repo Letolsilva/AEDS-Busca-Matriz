@@ -206,13 +206,14 @@ void matrizFinal(ofstream &arquivo, itemMatriz ** matriz, int N){
     }
 }
 
-void PercorrerMatrizLargura(itemMatriz **matriz, int N, int linha, int coluna, Lista * lista){
+void PercorrerMatrizLargura(itemMatriz **matriz, int N, int linha, int coluna, Lista * lista, int &passosLargura){
     inicializarCores(matriz, N);
     while(matriz[linha][coluna].valor != "?"){
         if(matriz[linha][coluna].valor == "*"){
             matriz[linha][coluna].valor = "1";
             linha = 0;
             coluna = 0;
+            passosLargura++;
             excluirLista(lista);
             init(lista);
             inicializarCores(matriz, N);
@@ -224,6 +225,7 @@ void PercorrerMatrizLargura(itemMatriz **matriz, int N, int linha, int coluna, L
             //LImprime(lista);
             linha = lista->primeiro->item.posicaoLinha;
             coluna = lista->primeiro->item.posicaoColuna; 
+            passosLargura++;
             //cout << "Posição atual 2: " << linha << " " << coluna << endl;
             removerItemInicio(lista);
         }

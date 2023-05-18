@@ -12,7 +12,7 @@
 int main(){
     chrono::steady_clock::time_point inicio = chrono::steady_clock::now();
     ofstream arquivoRandomica, arquivoLargura, arquivoProfundidade;
-    int N, linha=0, coluna=0;
+    int N, linha=0, coluna=0, passosLargura=0, passosProfundidade=0, passosRandomica=0;
     Lista * lista = new Lista();
     init(lista);
 
@@ -35,37 +35,35 @@ int main(){
     ImprimirMatriz(matriz, N);
 
     cout << "\n---[MATRIZ RANDÔMICA]---";
-    PercorrerMatrizRandomica(matriz, linha, coluna, N);
+    PercorrerMatrizRandomica(matriz, linha, coluna, N, passosRandomica);
     matrizFinal(arquivoRandomica, matriz, N);
     chrono::steady_clock::time_point fimRandomico = chrono::steady_clock::now();
     chrono::duration<double, milli> tempoRandomico = fimRandomico - inicio;
+    cout << "TOTAL DE PASSOS: " << passosRandomica << endl;
     cout<<"TEMPO DE EXECUÇÃO RANDÔMICA: "<< fixed  << setprecision(2)<< tempoRandomico.count() <<" ms "<<endl;
 
     cout << "\n---[MATRIZ LARGURA]---\n";
     LerArquivo(matriz, N);
-    PercorrerMatrizLargura(matriz, N, linha, coluna, lista);
+    PercorrerMatrizLargura(matriz, N, linha, coluna, lista, passosLargura);
     matrizFinal(arquivoLargura, matriz, N);
     chrono::steady_clock::time_point fimLargura = chrono::steady_clock::now();
-    chrono::duration<double, milli> tempoLargura = fimLargura - inicio;
+    chrono::duration<double, milli> tempoLargura = (fimLargura - inicio) - tempoRandomico;
+    cout << "TOTAL DE PASSOS: " << passosLargura << endl;
     cout<<"TEMPO DE EXECUÇÃO LARGURA: "<< fixed  << setprecision(2)<< tempoLargura.count() <<" ms "<<endl;
     excluirLista(lista);
     init(lista);
     
     cout << "\n---[MATRIZ PROFUNDIDADE]---";
     LerArquivo(matriz, N);
-    PercorrerMatrizProfundidade(matriz, N, linha, coluna, lista);
+    PercorrerMatrizProfundidade(matriz, N, linha, coluna, lista, passosProfundidade);
     matrizFinal(arquivoProfundidade, matriz, N);
     chrono::steady_clock::time_point fimProfundidade = chrono::steady_clock::now();
-    chrono::duration<double, milli> tempoProfundidade = fimProfundidade - inicio;
+    chrono::duration<double, milli> tempoProfundidade = (fimProfundidade - inicio) - tempoLargura - tempoRandomico;
+    cout << "TOTAL DE PASSOS: " << passosProfundidade << endl;
     cout<<"TEMPO DE EXECUÇÃO PROFUNDIDADE: "<< fixed  << setprecision(2)<< tempoProfundidade.count() <<" ms "<<endl;
     arquivoLargura.close();
     arquivoProfundidade.close();
     arquivoRandomica.close();
-    //Liberação da matriz
-    for(int i = 0; i < N; i++){
-        free(matriz[i]);
-    }
-    free(matriz);
     excluirLista(lista);
     
     return 0;

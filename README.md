@@ -60,8 +60,22 @@ O objetivo desta atividade é desenvolver algoritmos que permitam que um program
 - <strong>MatrizProfundidade.cpp:</strong> Feita a estruturação das funções criadas no arquivo MatrizProfundidade.hpp.
 - <strong>MatrizRandomica.cpp:</strong> Criada as funções para o funcionamento do algoritmo de busca de forma randômica.
 - <strong>MatrizRandomica.hpp:</strong> Feita a estruturação das funções criadas no arquivo MatrizRandomica.hpp.
+- <strong>Arquivos Output:</strong> Após os caminhamentos, cria-se arquivos para salvar as matrizes modificadas, sendo eles: `outputLargura.data`, `outputProfunidade.data`, `outputRandomica.data`.
 
 ## 🔨Resolução do problema
+<h3><b>Implementação da lista</b></h3>
+
+*Arquivos lista.hpp e lista.cpp*<br>
+- ```init```: inicialização da lista.
+- `insertEnd`: insere ao final da lista.
+- `insertInicio`: insere ao início da lista.
+- `LImprime`: imprime a lista.
+- `ListaVazia`: retorna se a lista está vazia ou não.
+- `removerItemInicio`: remove item do início da lista.
+- `excluirLista`: libera a memória da lista.
+
+Para a busca em largura, a lista é implementada como uma fila, e como uma pilha para a busca em profundidade.
+
 <h3><b>Busca randômica</b></h3>
 <strong>Explicação detalhada da função 'PercorrerMatrizRandomica':</strong><br>
 Essa função tem como criterio de decisão qual direção o algoritmo adotará, feita por switch's, sendo cada 'case' uma direção possivel.
@@ -120,13 +134,13 @@ Essa função tem como criterio de decisão qual direção o algoritmo adotará,
  - É criado um arquivo `outputRandomico.data`, que ira armazenar a matriz modificada ou nao ao final do jogo, dessa maneira o usuario poderá comparar com as matrizes presente no arquivo `input.data` e ver as posições que foram acessadas pelo personagem.<br>
 
 <div align="center">
-  <img src="/imgs/Rand1.png" alt="Rand2" width=300px>
-  <img src="/imgs/Rand2.png" alt "Rand1" width=300px>
+  <img src="imgs/Rand1.png" alt="Rand2" width=300px>
+  <img src="imgs/Rand2.png" alt="Rand1" width=300px>
 </div>
 
-<h3>Exemplo de uma busca randomica:</h3>
+<h3>Exemplo de uma busca randômica:</h3>
 <div align="center">
-  <img src="/imgs/GifRandomico.gif.gif" alt="gif" width=300px>
+  <img src="imgs/GifRandomico.gif.gif" alt="gif" width=300px>
 </div>
 
 <h3><b>Busca em largura</b></h3>
@@ -152,8 +166,8 @@ Segue-se a seguinte ordem de prioridade para inserção dos vizinhos na fila:
 </div>
 
 <div align="center">
-  <img src="/imgs/Largura.png" alt="BuscaEmLargura" width=300px>
-  <p align="center"><em> Cada cor representa as posições que foram salvas na fila e sua sequencia em que foi colocada.</em></p>
+  <img src="imgs/Largura.png" alt="BuscaEmLargura" width=300px>
+  <p align="center"><em> Cada cor representa as posições que foram salvas na fila e a sequência em que foram colocadas.</em></p>
 </div>
 
 <b> Função PercorrerMatrizLargura </b>
@@ -191,8 +205,8 @@ Prioridade adotada pela TAG:
 <li>Outros valores diferentes dos mostrados na tabela podem levar ao mau funcionamento do código.</li>
 
 <div align="center">
-  <img src="/imgs/Profundidade.png" alt="Pasta Dataset" width=300px>
-  <p align="center"><em> Cada cor representa uma direção a ser tomada por vez. <br> Os numeros seguem o da tabela acima.</em></p>
+  <img src="imgs/Profundidade.png" alt="Pasta Dataset" width=300px>
+  <p align="center"><em> Cada cor representa uma direção a ser tomada por vez. <br> Os números representam as TAG's, conforme a tabela acima.</em></p>
 </div>
 
 ## 🎯Resultados
@@ -203,7 +217,6 @@ A diferença mais marcante entre as buscas está nas estruturas de dados auxilia
 Em relação a complexidade do tempo, podemos calcular de maneira geral que o DFS e o BFS possuem uma complexidade de O(V + E), onde V e E são o número total de vértices e arestas no grafo, respectivamente, em uma matriz V seria as posições e E a quantidade de passos.
 
 ## 👾Compilação e execução
-* Após as manipulações, a memória da matriz e da lista são liberadas e os arquivos são fechados.
 * Especificações da máquina em que o código foi rodado:
   * Processador Intel Core i5, 7th Gen;
   * Sistema Operacional Windows 10;
