@@ -7,7 +7,7 @@
         arquivo << "\n";
     }
 }*/
-void PercorrerMatrizRandomica(itemMatriz **matriz, int linha, int coluna, int N){
+void PercorrerMatrizRandomica(itemMatriz **matriz, int linha, int coluna, int N, int &passosRandomico){
     int linha_aux=0, coluna_aux=0, direcaoAleatoria=0;
     linha_aux = linha;
     coluna_aux=coluna;
@@ -29,6 +29,7 @@ void PercorrerMatrizRandomica(itemMatriz **matriz, int linha, int coluna, int N)
                         linha_aux = 0;
                         coluna_aux = 0;
                     }
+                    passosRandomico++;
                 }
                 //ImprimirMatriz(matriz, N);
                 break;
@@ -43,6 +44,7 @@ void PercorrerMatrizRandomica(itemMatriz **matriz, int linha, int coluna, int N)
                         linha_aux = 0;
                         coluna_aux = 0;
                     }
+                    passosRandomico++;
                 }
                 //ImprimirMatriz(matriz, N);
                 break;
@@ -56,6 +58,7 @@ void PercorrerMatrizRandomica(itemMatriz **matriz, int linha, int coluna, int N)
                         linha_aux = 0;
                         coluna_aux = 0;
                     }
+                    passosRandomico++;
                 }
                 //ImprimirMatriz(matriz, N);
                 break;
@@ -69,6 +72,7 @@ void PercorrerMatrizRandomica(itemMatriz **matriz, int linha, int coluna, int N)
                         linha_aux = 0;
                         coluna_aux = 0;
                     }
+                    passosRandomico++;
                 }
                 //ImprimirMatriz(matriz, N);
                 break;
@@ -83,6 +87,7 @@ void PercorrerMatrizRandomica(itemMatriz **matriz, int linha, int coluna, int N)
                         linha_aux = 0;
                         coluna_aux = 0;
                     }
+                    passosRandomico++;
                 }
                 //ImprimirMatriz(matriz, N);
                 break;
@@ -97,6 +102,7 @@ void PercorrerMatrizRandomica(itemMatriz **matriz, int linha, int coluna, int N)
                         linha_aux = 0;
                         coluna_aux = 0;
                     }
+                    passosRandomico++;
                 }
                 //ImprimirMatriz(matriz, N);
                 break;
@@ -111,6 +117,7 @@ void PercorrerMatrizRandomica(itemMatriz **matriz, int linha, int coluna, int N)
                         linha_aux = 0;
                         coluna_aux = 0;
                     }
+                    passosRandomico++;
                 }
                 //ImprimirMatriz(matriz, N);
                 break;
@@ -126,6 +133,7 @@ void PercorrerMatrizRandomica(itemMatriz **matriz, int linha, int coluna, int N)
                         linha_aux = 0;
                         coluna_aux = 0;
                     }
+                    passosRandomico++;
                 }
                 //ImprimirMatriz(matriz, N);
                 break;

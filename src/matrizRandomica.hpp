@@ -7,4 +7,4 @@
 #include<ctime>
 #include "funcoesArquivo.hpp"
 
-void PercorrerMatrizRandomica(itemMatriz **matriz, int linha, int coluna, int N);
+void PercorrerMatrizRandomica(itemMatriz **matriz, int linha, int coluna, int N, int &passosRandomico);

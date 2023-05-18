@@ -8,5 +8,5 @@
 #include "funcoesArquivo.hpp"
 #include "matrizLargura.hpp"
 
-void PercorrerMatrizProfundidade(itemMatriz **matriz, int N, int linha, int coluna, Lista * lista);
+void PercorrerMatrizProfundidade(itemMatriz **matriz, int N, int linha, int coluna, Lista * lista, int &passosProfundidade);
 int caminhoDisponivel(itemMatriz ** matriz, int N, int linha, int coluna, int tag);
