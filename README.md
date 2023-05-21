@@ -212,13 +212,13 @@ Prioridade adotada pela TAG:
 ## 🎯Resultados
 Ao final das buscas, é impresso no terminal a posição em que o caracter especial foi encontrado, o tempo de execução e o número de passos dados de determinada busca.
 Para calcularmos o tempo de execução de cada tipo de busca, utilizamos a biblioteca `chrono`, que mede o tempo decorrido entre dois pontos do código. Criou-se uma variável para salvar o tempo inicial e à medida em que as matrizes eram percorridas, o tempo atual é salvo e a duração da execução é gerada pela diferença entre ele e o tempo inicial. A ordem de execução foi: busca randômica, busca em largura e busca em profundidade, sendo que para as duas últimas situações, a duração da execução é calculada a partir da diferença entre o tempo final, o tempo inicial e o tempo de execução das buscas anteriores. Por exemplo, para calcular o tempo de execução da busca em profundidade, fez-se: `Duração = Tempo final - tempo inicial - duração busca em largura - duração busca randômica`.
-Para os resultados abaixo, foi utilizada uma matriz de tamanho 50x50, sendo a situação padrão dos perigos e paredes utilizada na mudança de posição da `?` disponível em `input.data`
-- Matriz com `?` na última posição
+Para os resultados abaixo, foi utilizada uma matriz de tamanho 50x50, sendo a situação padrão dos perigos e paredes disponível em `input.data`
+- Matriz com `?` na última posição - Situação padrão
   - Busca randômica: 5.70 ms e 53757 passos
   - Busca em largura: 35.58 ms e 51210 passos
   - Busca em profundidade: 5.32 ms e 18860 passos
 - Matriz com `?` no meio
-  - Situação padrão
+  - Situação padrão 
     - Busca randômica: 2.06 ms e 904 passos
     - Busca em largura: 5.46 ms e 3328 passos
     - Busca em profundidade: 11.46 ms e 29172 passos
@@ -230,18 +230,35 @@ Para os resultados abaixo, foi utilizada uma matriz de tamanho 50x50, sendo a si
     - Busca randômica: 2.76 ms e 14108 passos
     - Busca em largura: 3.98 ms e 1690 passos
     - Busca em profundidade: 7.73 ms e 25015 passos
-- Matriz com `?` na posição [0][1]
+- Matriz com `?` na posição [0][1] - Situação padrão
   - Busca randômica: 0.94 ms e 183 passos
   - Busca em largura: 2.78 ms e 1 passo
   - Busca em profundidade: 8.70 ms e 26471 passos
 
 **Relações**
-
+- Matriz com `?` na última posição - Situação padrão
+  - A busca em largura é 524.2% mais devagar que a busca randômica
+  - A busca em profundidade é 6.7% mais rápida que a busca randômica
+- Matriz com `?` no meio
+  - Situação padrão
+    - A busca em largura é 165% mais devagar que a busca randômica
+    - A busca em profundidade é 456.3% mais devagar que a busca randômica
+  - Número de perigos maior
+    - A busca em largura é 618.4$ mais devagar que a busca randômica
+    - A busca em profundidade é 1177% mais devagar que a busca randômica
+  - Número de paredes maior
+    - A busca em largura é 44.2% mais devagar que a busca randômica
+    - A busca em profundidade é 180% mais devagar que a busca randômica
+- Matriz com `?` na posição [0][1] - Situação padrão
+  - A busca em largura é 195% mais devagar que a busca randômica
+  - A busca em profundidade é 825.5% mais devagar que a busca randômica
 ## ✔️Conclusão
 Ao final deste código, pode-se observar que as buscas randômicas, BFS e a DFS são muito diferentes e têm aplicações muito distintas.
-A diferença mais marcante entre as buscas está nas estruturas de dados auxiliares empregadas pelas duas estratégias. Enquanto a busca randômica não segue um caminho previsível e percorre aleatoriamente, a BFS utiliza uma fila de posições, e a DFS utiliza uma pilha, sendo possível estimar o percurso realizado por ambas as estratégias com base na entrada e na matriz a ser percorrida. Além disso, podemos observar que  a DFS visita todas as posições de uma matriz sem interferência da posição inicial, enquanto a BFS visita apenas as posições que estão ao alcance da posição inicia. Essas características nos permitem analisar em quais casos cada algoritmo é ideal. Por exemplo, se soubermos que a solução (representada pelo caractere '?'), está em algum lugar longe do vértice de origem da matriz, usamos o DFS. Se soubermos que a solução não está tão longe da origem, usamos o BFS.
+A diferença mais marcante entre as buscas está nas estruturas de dados auxiliares empregadas pelas duas estratégias. Enquanto a busca randômica não segue um caminho previsível e percorre aleatoriamente, a BFS utiliza uma fila de posições, e a DFS utiliza uma pilha, sendo possível estimar o percurso realizado por ambas as estratégias com base na entrada e na matriz a ser percorrida. Além disso, podemos observar que  a DFS visita todas as posições de uma matriz sem interferência da posição inicial, enquanto a BFS visita apenas as posições que estão ao alcance da posição inicial. Essas características nos permitem analisar em quais casos cada algoritmo é ideal. Por exemplo, se soubermos que a solução (representada pelo caractere '?'), está em algum lugar longe do vértice de origem da matriz, usamos o DFS. Se soubermos que a solução não está tão longe da origem, usamos o BFS.
 
 Em relação a complexidade do tempo, podemos calcular de maneira geral que o DFS e o BFS possuem uma complexidade de O(V + E), onde V e E são o número total de vértices e arestas no grafo, respectivamente, em uma matriz V seria as posições e E a quantidade de passos.
+
+Em relação aos tempos de execução e o número de passos, podemos obter as seguintes relações: Para a matriz com `?` na última posição da situação padrão, a busca em profundidade é a melhor opção, já que percorre menos posições em menos tempo em relação aos outros tipos de busca. Quando `?` está no meio, na situação padrão e quando aumenta-se o número de perigos, a busca randômica é a melhor opção, porém quando aumenta-se o número de paredes, apesar de a busca em largura ser 44.2% mais lenta que a busca randômica, a situação aleatória possui um número de passos 88% maior. A busca em largura gasta mais tempo devido à manipulação da fila e verificação das fronteiras, mas na busca propriamente dita, na situação do aumento de paredes, ela mostra-se mais eficiente por achar `?` em menos movimentações. Finalmente, quanto `?` está na posição [0][1] da situação padrão, a busca em profundidade tem uma diferença discrepante no tempo de execução devido ao caminhamento começar para baixo. Ainda nesse caso, a busca em largura é a melhor opção, pois apesar de ser 195% mais devagar do que a busca randômica devido à manipulação da fila e verificação das fronteiras, com ela é possível achar `?` em somente um passo, já que na ordem de prioridade das direções possíveis no começo, a direita ([0][1]) vem primeiro.
 
 ## 👾Compilação e execução
 * Especificações da máquina em que o código foi rodado:
@@ -255,7 +272,7 @@ Em relação a complexidade do tempo, podemos calcular de maneira geral que o DF
   |  `make`                | Executa a compilação do programa utilizando o gcc, e o resultado vai para a pasta build           |
   |  `make run`            | Executa o programa da pasta build após a realização da compilação                                 |
 
-## Contato
+## 📞Contato
 <div>
  <p align="justify"> Julia Rezende</p>
  <a href="https://t.me/juliarezende34">
