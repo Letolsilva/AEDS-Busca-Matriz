@@ -244,7 +244,7 @@ Para os resultados abaixo, foi utilizada uma matriz de tamanho 50x50, sendo a si
     - A busca em largura é 165% mais devagar que a busca randômica
     - A busca em profundidade é 456.3% mais devagar que a busca randômica
   - Número de perigos maior
-    - A busca em largura é 618.4$ mais devagar que a busca randômica
+    - A busca em largura é 618.4% mais devagar que a busca randômica
     - A busca em profundidade é 1177% mais devagar que a busca randômica
   - Número de paredes maior
     - A busca em largura é 44.2% mais devagar que a busca randômica
